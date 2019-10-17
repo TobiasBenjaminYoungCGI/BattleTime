@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative 'lib/player'
 require_relative 'lib/game'
+
 class Battle < Sinatra::Base
 
   before do
@@ -31,6 +32,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
+    @game.poison_effect(@game.current_turn)
     @game.switchTurn
     @game.attack(@game.current_turn)
     if @game.complete?
@@ -46,11 +48,18 @@ class Battle < Sinatra::Base
   end
 
   post '/boost' do
+    @game.poison_effect(@game.current_turn)
     @game.powerup(@game.current_turn)
     @game.switchTurn
     redirect '/battle_form'
   end
 
+  post '/poison' do
+    @game.switchTurn
+    @game.set_poison(@game.current_turn)
+    @game.poison_effect(@game.current_turn)
+    redirect '/battle_form'
+  end
   get '/gameover' do
     erb :gameover
   end

@@ -1,31 +1,52 @@
 <div class="battleBody">
   <div class="player1">
-    <h1> <%= @game.player1.name %> </h1>
+    <h1 class="inline" >
+       <%= @game.player1.name %>
+       <% if @game.current_turn == @game.player1 %>
+          <span class="dot"></span>
+        <% end %>
+     </h1>
     <img src="/images/Player1Char.png" height="200" width="250">
-    <h3> <%= @game.player1.hp %> HitPoints </h3>
-    <% if @game.current_turn == @game.player1 %>
-      <span class="dot"></span>
-      <% end %>
+    <h2> Stats: </h2>
+    <h3>HP: <%= @game.player1.hp %> </h3>
+    <h3>Damage: <%= @game.player1.baseDMG %> - <%= @game.player1.baseDMG + 20 %> </h3>
+    <% if @game.player1.poisoned %>
+      <h3>Status:</h3>
+     <h3 class="poisoned">Poisoned</h3>
+     <% end %>
+    <p> <% @game.player2.poisoned %> </p>
   </div>
 
   <div class="player2">
-    <h1> <%= @game.player2.name %></h1>
+    <h1 class="inline">
+      <% if @game.current_turn == @game.player2 %>
+        <span class="dot"></span>
+      <% end %>
+      <%= @game.player2.name %>
+    </h1>
     <img src="/images/Player2Char.png" height="200" width="250">
-    <h3> <%= @game.player2.hp %> HitPoints </h3>
-    <% if @game.current_turn == @game.player2 %>
-      <span class="dot"></span>
+    <h2> Stats: </h2>
+    <h3>HP: <%= @game.player2.hp %></h3>
+    <h3>Damage: <%= @game.player2.baseDMG %> - <%= @game.player2.baseDMG + 20 %> </h3>
+    <% if @game.player2.poisoned %>
+      <h3>Status:</h3>
+      <h3 class="poisoned">Poisoned</h3>
     <% end %>
+    <br>
   </div>
 
   <div class="actions">
-    <form action="/attack" method="post" >
-      <input type="submit" class="actionButtons" value="Attack"/>
-    </form>
-    <form action="/heal" method="post" >
-      <input type="submit" class="actionButtons" value="Heal"/>
-    </form>
-    <form action="/boost" method="post" >
-      <input type="submit" class="actionButtons" value="Boost"/>
+    <form method="post">
+      <input formaction="/attack" type="submit" class="actionButtons" value="Attack"/>
+      <input formaction="/heal" type="submit" class="actionButtons" value="Heal"/>
+      <input formaction="/boost" type="submit" class="actionButtons" value="Boost"/>
+      <input formaction="/poison" type="submit" class="actionButtons" value="Poison">
     </form>
   </div>
+</div>
+<h2 style="text-align: center;">Action Log</h2>
+<div class="action_log">
+  <% @game.log.reverse.each do |item| %>
+  <%= item %> <br>
+  <% end %>
 </div>

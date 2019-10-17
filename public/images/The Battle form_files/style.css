@@ -50,9 +50,10 @@ input[type=text]{
 
 .action_log {
 	text-align: center;
+  padding-top: 10px;
 	display: inline-block;
-	padding-right: 21%;
-	padding-left: 22.5%;
+	padding-right: 100px;
+	padding-left: 130px;
 	float: center;
 }
 .actions {

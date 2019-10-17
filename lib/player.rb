@@ -1,10 +1,13 @@
 class Player
   BASE_VALUE = 10
-  attr_reader :name,:baseDMG, :hp, :dmg
+  attr_reader :name,:baseDMG, :hp, :dmg, :dmg_this_turn
+  attr_accessor :poisoned
   def initialize(name)
     @name = name.capitalize
     @hp = 100
     @baseDMG = BASE_VALUE
+    @poisoned
+    @dmg_this_turn
   end
 
   def takeHit
@@ -12,16 +15,31 @@ class Player
   end
 
   def repair
-    @hp += rand(BASE_VALUE)
+    @hp += randcalc
+    @poisoned = false
   end
 
   def boost
-    @baseDMG += rand(BASE_VALUE)
+    @baseDMG += randcalc
+  end
+
+  def roll_poison
+    if @poisoned
+      @hp -= poison_calc
+    end
   end
 
   private
 
+  def randcalc
+    @dmg_this_turn = rand(BASE_VALUE)
+  end
+  
   def dmgrand
-    @baseDMG + rand(20)
+    @dmg_this_turn = @baseDMG + rand(20)
+  end
+
+  def poison_calc
+  @dmg_this_turn = (@hp + (rand(6) + rand(6)))/8
   end
 end
