@@ -1,0 +1,31 @@
+<div class="battleBody">
+  <div class="player1">
+    <h1> <%= @game.player1.name %> </h1>
+    <img src="/images/Player1Char.png" height="200" width="250">
+    <h3> <%= @game.player1.hp %> HitPoints </h3>
+    <% if @game.current_turn == @game.player1 %>
+      <span class="dot"></span>
+      <% end %>
+  </div>
+
+  <div class="player2">
+    <h1> <%= @game.player2.name %></h1>
+    <img src="/images/Player2Char.png" height="200" width="250">
+    <h3> <%= @game.player2.hp %> HitPoints </h3>
+    <% if @game.current_turn == @game.player2 %>
+      <span class="dot"></span>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <form action="/attack" method="post" >
+      <input type="submit" class="actionButtons" value="Attack"/>
+    </form>
+    <form action="/heal" method="post" >
+      <input type="submit" class="actionButtons" value="Heal"/>
+    </form>
+    <form action="/boost" method="post" >
+      <input type="submit" class="actionButtons" value="Boost"/>
+    </form>
+  </div>
+</div>

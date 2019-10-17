@@ -1,0 +1,72 @@
+body
+{
+	line-height: 1.6em;
+	background-color: #17b3cc;
+	color: white;
+}
+input[type=text]{
+	padding: 20px 26px;
+  margin-bottom: 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.header {
+		color: white;
+		background-color: #00c3e3;
+		font-family:Trebuchet MS;
+		font-size: 20;
+		padding: 40px 40px;
+		margin-bottom: 20px;
+		text-align: center;
+		font-weight:bolder;
+		border: 1px solid	#009cb6;
+}
+.player1 {
+	text-align: center;
+  position: relative;
+  float:left;
+}
+
+.player2 {
+	text-align: center;
+  position: relative;
+  float:right;
+}
+
+.actions {
+  text-align: center;
+  padding-top: 100px
+}
+
+.actionButtons {
+	background-color:#ff3c1c;
+	border:1px solid #e22000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:15px;
+	padding:16px 30px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+  display: inline-block;
+  margin-bottom: 10px
+}
+.actionButtons:hover {
+	background-color:#e22000;
+	border:2px solid #00c3e3;
+}
+.actionButtons:active {
+	position:relative;
+	top:1px;
+}
+
+.dot {
+  background-color: green;
+	border: 1px solid #ffffff;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
