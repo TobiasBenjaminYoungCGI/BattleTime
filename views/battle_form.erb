@@ -44,9 +44,10 @@
     </form>
   </div>
 </div>
-<h2 style="text-align: center;">Action Log</h2>
 <div class="action_log">
+  <nav>
   <% @game.log.reverse.each do |item| %>
   <%= item %> <br>
   <% end %>
+  </nav>
 </div>

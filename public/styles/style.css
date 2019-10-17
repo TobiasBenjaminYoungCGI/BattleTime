@@ -3,6 +3,7 @@ body
 	line-height: 1.6em;
 	background-color: #17b3cc;
 	color: white;
+	height: 100%;
 }
 input[type=text]{
 	padding: 20px 26px;
@@ -10,6 +11,14 @@ input[type=text]{
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+nav {
+	border: 2px solid #e22000;
+	height: 300px;
+	width: 150%;
+	overflow: hidden;
+ overflow-y: scroll;
 }
 .inline {
 	padding-top: 20px;
@@ -52,7 +61,7 @@ input[type=text]{
 	text-align: center;
 	display: inline-block;
 	padding-right: 21%;
-	padding-left: 22.5%;
+	padding-left: 17.5%;
 	float: center;
 }
 .actions {

@@ -34,7 +34,7 @@ class Player
   def randcalc
     @dmg_this_turn = rand(BASE_VALUE)
   end
-  
+
   def dmgrand
     @dmg_this_turn = @baseDMG + rand(20)
   end

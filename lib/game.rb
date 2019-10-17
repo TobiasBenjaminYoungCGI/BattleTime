@@ -5,7 +5,7 @@ class Game
     @players = [player1, player2]
     @current_turn = player1
     @winner
-    @log = []
+    @log = ['Commence the Bout!']
   end
 
   def self.setup(player1, player2)
@@ -44,17 +44,11 @@ class Game
 
   def poison_effect(player)
     player.roll_poison
-    if player.poisoned
-      add_to_log(player.dmg_this_turn, "Poison")
-    end
+    player.poisoned ? add_to_log(player.dmg_this_turn, "Poison") : nil
   end
 
   def switchTurn
-    if @current_turn == player1
-      @current_turn = player2
-    else
-      @current_turn = player1
-    end
+    @current_turn == player1 ? @current_turn = player2 : @current_turn = player1
   end
 
   def complete?
